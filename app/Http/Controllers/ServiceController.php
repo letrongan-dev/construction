@@ -49,11 +49,11 @@ class ServiceController extends Controller
     	$service = new Service();
     	$service->title = $request->title;
     	$service->description = $request->description;
-    	$service->img_service = $request->img_service;
+    	$service->banner = $this->setNameImage($request->img_service);
     	$service->slug = $request->slug;
     	$service->content = $request->content;
     	$service->save();
-    	return redirect('/admin/service')->with('success','Thêm thành công!');
+    	return redirect('/admin/services')->with('success','Thêm thành công!');
 
     }
 }

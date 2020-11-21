@@ -33,7 +33,7 @@ Route::post('/admin/blog/update/{id}', 'BlogController@updateBlog');
 Route::get('/admin/blog/delete/{id}', 'BlogController@deleteBlog');
 
 //Service
-Route::get('/admin/service','ServiceController@index');
+Route::get('/admin/services','ServiceController@index');
 Route::get('/admin/service/add','ServiceController@add');
 Route::post('/admin/service/save','ServiceController@save');
 

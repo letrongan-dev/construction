@@ -72,9 +72,9 @@
 <script src="{{asset('public/ckeditor/ckeditor.js')}}"></script>
     <script type="text/javascript">
         CKEDITOR.replace('descTextarea',{
-        filebrowserBrowseUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-        filebrowserUploadUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-        filebrowserImageBrowseUrl : 'filemanager/dialog.php?type=1&editor=ckeditor&fldr='  
+        filebrowserBrowseUrl : '/construction/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+        filebrowserUploadUrl : '/construction/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+        filebrowserImageBrowseUrl : '/construction/filemanager/dialog.php?type=1&editor=ckeditor&fldr='  
         });
 
 
