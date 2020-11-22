@@ -56,4 +56,63 @@ class ServiceController extends Controller
     	return redirect('/admin/services')->with('success','Thêm thành công!');
 
     }
+
+    public function delete($id){
+    	$service = Service::find($id);
+    	if(!$service){
+    		return redirect('/admin/services')->with('error','Không tìm thấy dịch vụ!');
+    	}
+    	$service->delete();
+    	return redirect('/admin/services')->with('success','Xóa thành công!');
+    }
+
+    public function edit($id){
+    	$service = Service::find($id);
+    	return view('admin.service.service_edit', compact('service'));
+    }
+    public function update(Request $request,$id){
+    	$this->validate($request,[
+    		'description' => 'required|max:100',
+    		'img_blog' => 'mimes:jpg,jpeg,png,gif|max:2048',
+    		'content' => 'required'
+
+    	],[
+    		'description.required' => 'Vui lòng nhập mô tả',
+    		'description.max' => 'Đoạn mô tả có tối đa 100 ký tự',
+    		'content.required' => 'Vui lòng nhập nội dung',
+    		'img_blog.mimes' => 'Chỉ chấp nhận với đuôi .jpg .jpeg .png .gif',
+    		'img_blog.max' => 'Hình ảnh giới hạn dung lượng không quá 2M'
+    	]);
+    	$service = Service::find($id);
+    	$service->title = $service->title;
+    	$service->slug = $service->slug;
+    	if($request->description != null){
+            $service->description = $request->description;    
+        }else{
+            $service->description = $blog->description;
+        }
+        if($request->content != null){
+            $service->content = $request->content;   
+        }else{
+            $service->description = $service->content;
+        }
+        if($request->img_service != null){
+            $service->banner = $this->setNameImage($request->img_service);   
+        }else{
+            $service->banner = $service->banner;
+        }    
+    	$service->save();
+    	return redirect('/admin/services')->with('success','Cập nhật thành công!');
+
+    }
+    public function active($id){
+        $service = Service::find($id);
+        if($service->status == 0){
+            $service->status = 1;
+        }else{
+            $service->status = 0;
+        }
+        $service->save();
+        return redirect('/admin/services')->with('success','Kích hoạt thành công!');
+    }
 }

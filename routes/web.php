@@ -36,4 +36,10 @@ Route::get('/admin/blog/delete/{id}', 'BlogController@deleteBlog');
 Route::get('/admin/services','ServiceController@index');
 Route::get('/admin/service/add','ServiceController@add');
 Route::post('/admin/service/save','ServiceController@save');
+Route::get('/admin/service/edit/{id}', 'ServiceController@edit');
+Route::post('/admin/service/update/{id}', 'ServiceController@update');	
+Route::get('/admin/service/delete/{id}', 'ServiceController@delete');
+Route::get('/activeService/{id}', 'ServiceController@active');
 
+//Project
+Route::get('/admin/projects','ProjectController@index');

@@ -6,30 +6,30 @@
   <h1 class="text-white">Blog</h1>
   <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li><i class="fa fa-angle-right"></i> <a href="#">Cập nhật bài viết</a></li>
+    <li><i class="fa fa-angle-right"></i> <a href="#">Thêm bài viết</a></li>
   </ol>
 </div>
 <div class="content">
   <div class="card">
   <div class="card-body">
-    <h4 class="text-black">Cập nhật bài viết</h4>
+    <h4 class="text-black">Thêm dịch vụ mới</h4>
     @foreach($errors->all() as $err)
         <div class="alert alert-danger" role="alert">{{$err}}</div>
     @endforeach
-    <form action="{{URL::to('/admin/blog/update/'.$blogEdit->id_blog)}}" method="post" enctype="multipart/form-data">
-         <input type="hidden" name="_token" value="{{csrf_token()}}" >
+    <form action="{{URL::to('/admin/service/save')}}" method="post" enctype="multipart/form-data">
+         {{ csrf_field() }}
     	<div class="row mt-4">
 	      <div class="col-lg-6">
 	        <fieldset class="form-group">
 	          <label class="text-red">Tiêu đề *</label>
-	          <input class="form-control" id="name" name="title" type="text" readonly value="{{$blogEdit->titles}}">
+	          <input class="form-control" id="name" name="title" type="text">
 	        </fieldset>
 	      </div>
 	      <div class="col-lg-6">
 	        <fieldset class="form-group">
 	          <label class="text-red">Mô tả ngắn * </label>
 	          <small class="text-muted"><i>Mô tả đoạn văn bản có tối đa 100 ký tự</i></small>
-	          <textarea class="form-control" name="description" type="text">{{$blogEdit->description}}</textarea>
+	          <textarea class="form-control" name="description" type="text"></textarea>
 	        </fieldset>
 	      </div>
 	  	</div>
@@ -37,30 +37,27 @@
 	  	<div class="col-lg-6">
 	        <fieldset class="form-group">
 	          <label>Slug</label>
-	          <input class="form-control" name="slug" id="slug" type="text" readonly value="{{$blogEdit->slug}}">
+	          <input class="form-control" name="slug" id="slug" readonly type="text">
 	        </fieldset>
 	      </div>
 	      <div class="col-lg-6">
 	        <fieldset class="form-group">
-	          <label>Chọn ảnh bìa cho bài viết</label>
-              <div class="row">
-                    <img src='{{asset("public/frontend/img/blog/$blogEdit->img_blog")}}' class="col-lg-4" height="70" width="70">
-                    <input class="form-control col-lg-8" name="img_blog" type="file">
-              </div>
+	          <label>Chọn ảnh bìa cho dịch vụ</label>
+	          <input class="form-control" name="img_service" accept="image/png, image/jpeg, image/jpg" type="file">
 	        </fieldset>
 	      </div>
 	     </div>
 	     <div class="col-lg-12">
 	        <fieldset class="form-group">
-	          <label>Nội dung bài viết</label>
-	          <textarea class="form-control" name="content" type="textarea" id="descTextarea">{!! $blogEdit->content !!}</textarea>
+	          <label>Nội dung</label>
+	          <textarea class="form-control" name="content" type="textarea" id="descTextarea"></textarea>
 	        </fieldset>
 	      </div>
 	    </div>
         <div class="card m-t-3">
             <div style="text-align: center;" class="card-body">
             <div class="click2edit m-b-3"></div>
-                <button id="save" class="btn btn-success" type="submit">Cập nhật</button>
+            <button id="save" class="btn btn-success" type="submit">Thêm</button>
             <a href="{{URL::to('/admin/blogs')}}" class="btn btn-danger"  type="button">Huỷ</a>
             </div>
         </div>

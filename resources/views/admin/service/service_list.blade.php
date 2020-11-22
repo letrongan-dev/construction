@@ -18,9 +18,9 @@
             <a href="{{URL::to('/admin/service/add')}}" class="btn btn-lg btn-success float-right">+ Thêm</a>
             <div class="table-responsive">
               <table class="table">
-                <thead class="bg-primary text-white">
+                <thead class="bg-info text-white">
                   <tr>
-                    <th scope="col"></th>
+                    <th scope="col"><span class="fa fa-check ml-3"></span></th>
                     <th scope="col">Ngày tạo</th>
                     <th scope="col">Hình ảnh</th>
                     <th scope="col">Tiêu đề</th>
@@ -33,14 +33,14 @@
                 <tbody>
                   @forelse($services as $ser)
                   <tr>
-                    <td><a href="{{URL::to('/changeStatus/'.$ser->id_service)}}" class="btn btn-sm btn-secondary text-white" >
+                    <td><a href="{{URL::to('/activeService/'.$ser->id_service)}}" class="btn btn-sm btn-secondary text-white" >
                        <i class="fa fa-check-square-o"></i>
                       </a>
                     </td>
-                    <td></td>
-                    <td><img src='#' height="70" width="70"></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{date('d-m-Y', strtotime($ser->created_at))}}</td>
+                    <td><img src='{{asset("public/frontend/img/service/$ser->banner")}}' height="70" width="100"></td>
+                    <td>{{$ser->title}}</td>
+                    <td>{{$ser->description}}</td>
                     <td>
                     <?php
                     if($ser->status==0){
@@ -55,11 +55,11 @@
                     ?>
                     </td>
                     <td>
-                      <a href="{{URL::to('/admin/blog/edit/'.$ser->id_blog)}}" class="btn btn-sm btn-success text-white">
-                         <i class="fa  fa-pencil-square-o"></i>
+                      <a href="{{URL::to('/admin/service/edit/'.$ser->id_service)}}" class="btn btn-sm btn-success text-white">
+                         <i class="fa fa-pencil-square-o"></i>
                       </a>
-                      <a data-confirm='Bạn thật sự muốn xóa này ?'
-                          href="{{URL::to('/admin/blog/delete/'.$ser->id_blog)}}" class="btn btn-sm btn-danger">
+                      <a data-confirm='Bạn thật sự muốn xóa?'
+                          href="{{URL::to('/admin/service/delete/'.$ser->id_service)}}" class="btn btn-sm btn-danger">
                          <i class="fa fa-trash-o"></i>
                       </a>
                     </td>
