@@ -70,6 +70,8 @@
             </div>
           </div>
 	   </div>
+     {!!$listBlog->render()!!}
+
     </div>
 </div>
 </div>

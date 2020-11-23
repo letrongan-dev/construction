@@ -43,3 +43,12 @@ Route::get('/activeService/{id}', 'ServiceController@active');
 
 //Project
 Route::get('/admin/projects','ProjectController@index');
+Route::get('/admin/project/add','ProjectController@add');
+Route::post('/admin/project/save','ProjectController@save');
+Route::post('/admin/project/update/{id}','ProjectController@update');
+
+//User
+Route::get('/admin/users','UserController@index');
+Route::post('/admin/user/add','UserController@save');
+Route::post('/admin/user/update/{id}','UserController@update');
+Route::get('/admin/user/delete/{id}', 'UserController@delete');

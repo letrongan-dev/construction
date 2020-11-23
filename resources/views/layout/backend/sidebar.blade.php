@@ -14,15 +14,15 @@
       <li class="header">ADMINISTRATOR</li>
       <li> <a href="{{URL::to('/admins')}}"> <i class="fa fa-dashboard (alias)"></i> <span>Tổng quan</span> <span class="pull-right-container"></span> </a>
       </li>
-      <li> <a href="#"> <i class="fa fa-gears (alias)"></i> <span>Quản lý quyền hệ thống</span> <span class="pull-right-container"> </span> </a>
+      <li> <a> <i class="fa fa-gears (alias)"></i> <span>Quản lý quyền hệ thống</span> <span class="pull-right-container"> </span> </a>
       </li>
-      <li> <a href="#"> <i class="fa fa-users"></i> <span>Quản lý người dùng</span> <span class="pull-right-container"></span> </a>
+      <li> <a href="{{URL::to('/admin/users')}}"> <i class="fa fa-users"></i> <span>Quản lý người dùng</span> <span class="pull-right-container"></span> </a>
         <ul class="treeview-menu">
           <li><a href="ui-cards.html" class="active"><i class="fa fa-angle-right"></i> Cards</a></li>
         </ul>
       </li>
       <li class="header">MODULE QUẢN LÝ</li>
-      <li class="treeview"> <a href="#"> <i class="fa fa-indent"></i> <span>Quản lý layout</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+      <li class="treeview"> <a> <i class="fa fa-indent"></i> <span>Quản lý layout</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
         <ul class="treeview-menu">
           <li><a href="table-basic.html"><i class="fa fa-angle-right"></i>Trang giới thiệu</a></li>
           <li><a href="table-layout.html"><i class="fa fa-angle-right"></i>Trang liên hệ</a></li>
@@ -32,7 +32,7 @@
       </li>
       <li> <a href="{{URL::to('/admin/services')}}"> <i class="fa fa-th-large"></i> <span>Quản lý dịch vụ</span> <span class="pull-right-container"> </span> </a>
       </li>
-      <li> <a href="#"> <i class="fa fa-building-o"></i> <span>Quản lý dự án</span> <span class="pull-right-container"></span> </a>
+      <li> <a href="{{URL::to('/admin/projects')}}"> <i class="fa fa-building-o"></i> <span>Quản lý dự án</span> <span class="pull-right-container"></span> </a>
       </li>   
       
     </ul>

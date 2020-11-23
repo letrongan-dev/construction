@@ -16,20 +16,32 @@
     @foreach($errors->all() as $err)
         <div class="alert alert-danger" role="alert">{{$err}}</div>
     @endforeach
-    <form action="{{URL::to('/admin/service/save')}}" method="post" enctype="multipart/form-data">
+    <form action="{{URL::to('/admin/project/save')}}" method="post" enctype="multipart/form-data">
          {{ csrf_field() }}
     	<div class="row mt-4">
+            <div class="col-lg-6">
+            <fieldset class="form-group">
+              <label class="text-red">Ngày bắt đầu *</label>
+              <input class="form-control" name="startDate" type="date">
+            </fieldset>
+          </div>
+          <div class="col-lg-6">
+            <fieldset class="form-group">
+              <label class="text-red">Ngày kết thúc dự kiến *</label>
+              <input class="form-control" name="date_completion_expected" type="date">
+            </fieldset>
+          </div>
 	      <div class="col-lg-6">
 	        <fieldset class="form-group">
-	          <label class="text-red">Tiêu đề *</label>
-	          <input class="form-control" id="name" name="title" type="text">
+	          <label class="text-red">Tên dự án *</label>
+	          <input class="form-control" id="name" name="name" type="text">
 	        </fieldset>
 	      </div>
 	      <div class="col-lg-6">
 	        <fieldset class="form-group">
-	          <label class="text-red">Mô tả ngắn * </label>
-	          <small class="text-muted"><i>Mô tả đoạn văn bản có tối đa 100 ký tự</i></small>
-	          <textarea class="form-control" name="description" type="text"></textarea>
+	          <label>NOTE</label>
+	          <small class="text-muted"><i> (Ghi chú đoạn văn bản có tối đa 255 ký tự)</i></small>
+	          <textarea class="form-control" name="note" type="text"></textarea>
 	        </fieldset>
 	      </div>
 	  	</div>
@@ -42,15 +54,15 @@
 	      </div>
 	      <div class="col-lg-6">
 	        <fieldset class="form-group">
-	          <label>Chọn ảnh bìa cho dịch vụ</label>
-	          <input class="form-control" name="img_service" accept="image/png, image/jpeg, image/jpg" type="file">
+	          <label class="text-red">Chọn ảnh bìa cho dự án *</label>
+	          <input class="form-control" name="banner" accept="image/png, image/jpeg, image/jpg" type="file">
 	        </fieldset>
 	      </div>
 	     </div>
 	     <div class="col-lg-12">
 	        <fieldset class="form-group">
-	          <label>Nội dung</label>
-	          <textarea class="form-control" name="content" type="textarea" id="descTextarea"></textarea>
+	          <label class="text-red">Mô tả dự án * </label>
+	          <textarea class="form-control" name="description" type="textarea" id="descTextarea"></textarea>
 	        </fieldset>
 	      </div>
 	    </div>
@@ -58,7 +70,7 @@
             <div style="text-align: center;" class="card-body">
             <div class="click2edit m-b-3"></div>
             <button id="save" class="btn btn-success" type="submit">Thêm</button>
-            <a href="{{URL::to('/admin/blogs')}}" class="btn btn-danger"  type="button">Huỷ</a>
+            <a href="{{URL::to('/admin/projects')}}" class="btn btn-danger"  type="button">Huỷ</a>
             </div>
         </div>
 	</div>
@@ -80,7 +92,7 @@
 
 $("input#name").keyup(function(event)
 {
-    var title, slug;
+    var name, slug;
  
     //Lấy text từ thẻ input title 
     title = $(this).val();
