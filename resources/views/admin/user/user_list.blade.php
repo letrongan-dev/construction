@@ -46,9 +46,9 @@
                       @endforeach
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-success text-white" data-toggle="modal" data-target="#editModal{{$user->id_user}}">
-                         <i class="fa fa-pencil-square-o"></i>
-                      </a>
+                      <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal{{$user->id_user}}">
+                        <i class="fa fa-pencil-square-o"></i>
+                      </button>
                       <a data-confirm='Bạn thật sự muốn xóa này ?'
                           href="{{URL::to('/admin/user/delete/'.$user->id_user)}}" class="btn btn-sm btn-danger">
                          <i class="fa fa-trash-o"></i>
@@ -65,6 +65,7 @@
 	   </div>
     </div>
     {!!$listUser->render()!!}
+</div>
 </div>
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -88,8 +89,8 @@
         <fieldset class="form-group">
         <label>Chọn ảnh user</label>
             <input class="form-control" name="avatar" type="file">
-      </fieldset>
-      </div>
+        </fieldset>
+        </div>
       <div class="col-lg-12">
         <fieldset class="form-group">
           <label>Email</label>
@@ -131,19 +132,20 @@
     </div>
   </div>
 </div>
-</div>
 @foreach($listUser as $u)
-<div class="modal fade" id="editModal{{$u->id_user}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="exampleModal{{$u->id_user}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Cập nhật user</h4>
+        <h5 class="modal-title" id="exampleModalLabel">Cập nhật người dùng</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
       </div>
       <div class="modal-body">
       @foreach($errors->all() as $err)
-          <div class="alert alert-danger" role="alert">{{$err}}</div>
+        <div class="alert alert-danger" role="alert">{{$err}}</div>
       @endforeach
-      <form action="{{URL::to('/admin/user/update/'.$user->id_user)}}" method="post" enctype="multipart/form-data">
+      <form action="{{URL::to('/admin/user/update/'.$u->id_user)}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
         <div class="col-lg-12">
         <fieldset class="form-group">
@@ -155,7 +157,7 @@
         <fieldset class="form-group">
         <label>Chọn ảnh user</label>
           <div class="row">
-            <img src='{{asset("public/frontend/img/user/$u->avatar_user")}}' class="col-lg-4" height="70" width="70">
+            <img src='{{asset("public/frontend/img/user/$u->avatar_user")}}' class="col-lg-4" height="100" width="50">
             <input class="form-control col-lg-8" name="avatar" type="file">
           </div>
       </fieldset>
@@ -198,17 +200,16 @@
       </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">SAVE</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
       </form>
+      </div>
+      
     </div>
   </div>
 </div>
-</div>
 @endforeach
-</div>
-</div>
 @endsection
 @section('script_admin')
 @if(Session::has('success'))

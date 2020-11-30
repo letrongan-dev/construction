@@ -14,19 +14,14 @@
       <li class="header">ADMINISTRATOR</li>
       <li> <a href="{{URL::to('/admins')}}"> <i class="fa fa-dashboard (alias)"></i> <span>Tổng quan</span> <span class="pull-right-container"></span> </a>
       </li>
-      <li> <a> <i class="fa fa-gears (alias)"></i> <span>Quản lý quyền hệ thống</span> <span class="pull-right-container"> </span> </a>
+      <li> <a href="{{URL::to('/admin/message')}}"> <i class="fa fa-envelope"></i> <span>Messages</span>  </a>
+      <li> <a href="{{URL::to('/admin/roles')}}"> <i class="fa fa-gears (alias)"></i> <span>Quản lý quyền hệ thống</span> <span class="pull-right-container"> </span> </a>
       </li>
-      <li> <a href="{{URL::to('/admin/users')}}"> <i class="fa fa-users"></i> <span>Quản lý người dùng</span> <span class="pull-right-container"></span> </a>
-        <ul class="treeview-menu">
-          <li><a href="ui-cards.html" class="active"><i class="fa fa-angle-right"></i> Cards</a></li>
-        </ul>
+      <li> <a href="{{URL::to('/admin/users')}}"> <i class="fa fa-users"></i> <span>Quản lý người dùng</span>  </a>
       </li>
       <li class="header">MODULE QUẢN LÝ</li>
-      <li class="treeview"> <a> <i class="fa fa-indent"></i> <span>Quản lý layout</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
-        <ul class="treeview-menu">
-          <li><a href="table-basic.html"><i class="fa fa-angle-right"></i>Trang giới thiệu</a></li>
-          <li><a href="table-layout.html"><i class="fa fa-angle-right"></i>Trang liên hệ</a></li>
-        </ul>
+      </li>
+      <li> <a href="{{URL::to('/admin/layouts')}}"> <i class="fa fa-indent"></i> <span>Quản lý layout</span> </a>
       </li>   
       <li> <a href="{{URL::to('/admin/blogs')}}"> <i class="fa fa-pencil-square-o"></i> <span>Quản lý bài viết</span> <span class="pull-right-container"></span> </a>
       </li>

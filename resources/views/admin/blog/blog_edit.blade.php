@@ -44,7 +44,7 @@
 	        <fieldset class="form-group">
 	          <label>Chọn ảnh bìa cho bài viết</label>
               <div class="row">
-                    <img src='{{asset("public/frontend/img/blog/$blogEdit->img_blog")}}' class="col-lg-4" height="70" width="70">
+                    <img src='{{asset("public/frontend/img/blog/$blogEdit->img_blog")}}' class="col-lg-4" height="100" width="70">
                     <input class="form-control col-lg-8" name="img_blog" type="file">
               </div>
 	        </fieldset>

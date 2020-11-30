@@ -38,7 +38,7 @@
                       </a>
                     </td>
                     <td>{{date('d-m-Y', strtotime($blog->date_blog))}}</td>
-                    <td><img src='{{asset("public/frontend/img/blog/$blog->img_blog")}}' height="70" width="100"></td>
+                    <td><img src='{{asset("public/frontend/img/blog/$blog->img_blog")}}' height="70" width="70"></td>
                     <td>{{$blog->titles}}</td>
                     <td>{{$blog->description}}</td>
                     <td>

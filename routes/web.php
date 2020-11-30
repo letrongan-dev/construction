@@ -52,3 +52,29 @@ Route::get('/admin/users','UserController@index');
 Route::post('/admin/user/add','UserController@save');
 Route::post('/admin/user/update/{id}','UserController@update');
 Route::get('/admin/user/delete/{id}', 'UserController@delete');
+
+//Role
+Route::get('/admin/roles','RoleController@index');
+Route::post('/admin/role/add','RoleController@save');
+Route::post('/admin/role/update/{id}','RoleController@update');
+Route::get('/admin/role/delete/{id}', 'RoleController@delete');
+
+//Layout
+Route::get('/admin/layouts', 'AdminController@about');
+Route::post('/admin/update/info/{id}','AdminController@updateInfo');
+Route::get('/admin/activeFeedBack/{id}', 'AdminController@activeFeedBack');
+Route::post('/admin/feedback/add','AdminController@addFeedback');
+Route::get('/admin/feedback/delete/{id}','AdminController@delete');
+Route::get('/admin/message','AdminController@message');
+
+
+//Frontend
+Route::get('/blog','HomeController@blog');
+Route::get('/blog/details/{slug}','HomeController@blogDetail');
+Route::get('/about','HomeController@about');
+Route::get('/contact','HomeController@contact');
+Route::post('/postMessage','HomeController@postMessage');
+Route::get('/project','HomeController@project');
+Route::get('/project/details/{slug}','HomeController@projectDetail');
+Route::get('/service','HomeController@service');
+Route::get('/service/details/{slug}','HomeController@serviceDetail');

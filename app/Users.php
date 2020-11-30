@@ -10,7 +10,4 @@ class Users extends Model
 
     protected $primaryKey = "id_user";
 
-    public function Blog(){
-    	return $this->belongsTo(Blog::class);
-    }
 }

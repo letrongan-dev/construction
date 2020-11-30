@@ -41,31 +41,27 @@
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav> 
                                 <ul id="navigation">                                                                                                                   
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="project.html">Projects</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="single-blog.html">Blog Details</a></li>
-                                        </ul>
+                                    <li><a href="{{URL::to('/')}}">Home</a></li>
+                                    <li><a href="{{URL::to('/about')}}">About</a></li>
+                                    <li><a href="{{URL::to('/project')}}">Projects</a></li>
+                                    <li><a href="{{URL::to('/service')}}">Services</a></li>
+                                    <li><a href="{{URL::to('/blog')}}">Blog</a>
                                     </li>
-                                    <li><a href="#">Pages</a>
+                                    <!--<li><a href="#">Pages</a>
                                         <ul class="submenu">
                                             <li><a href="elements.html">Element</a></li>
                                             <li><a href="project_details.html">Projects Details</a></li>
                                             <li><a href="services_details.html">Services Details</a></li>
                                         </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    </li>-->
+                                    <li><a href="{{URL::to('/contact')}}">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>             
                     <div class="col-xl-2 col-lg-2 col-md-3">
                         <div class="header-right-btn f-right d-none d-lg-block">
-                            <a href="#" class="btn">Contact Now</a>
+                            <a href="{{URL::to('/contact')}}" class="btn">Contact Now</a>
                         </div>
                     </div>
                     <!-- Mobile Menu -->

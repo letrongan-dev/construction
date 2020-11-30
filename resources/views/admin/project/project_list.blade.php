@@ -37,7 +37,7 @@
                   @forelse($projects as $pro)
                   <tr>
                     <td>
-                      <button type="button" class="btn btn-secondary btn-sm fa fa-eye text-black" data-toggle="modal" data-target="#yourModal{{$pro->id_project}}">
+                      <button type="button" class="btn btn-secondary btn-sm fa fa-eye text-black" data-toggle="modal" data-target="#mediumModal{{$pro->id_project}}">
                     </td>
                     <td>{{date('d-m-Y', strtotime($pro->created_at))}}</td>
                     <td>{{date('d-m-Y', strtotime($pro->start_date))}}</td>
@@ -77,21 +77,23 @@
 </div>
 </div>
 @foreach ($projects as $p)    
-    <div class="modal fade" id="yourModal{{$p->id_project}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Mô tả dự án</h4>
-          </div>
-          <div class="modal-body">
-            {!!$p->description!!}
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+    <div class="modal fade" id="mediumModal{{$p->id_project}}" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mediumModalLabel">Mô tả dự án</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {!!$p->description !!}
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div> 
+    </div>
     <div class="modal fade" id="editModal{{$p->id_project}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
