@@ -67,7 +67,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h2 class="contact-title">Get in Touch</h2>
+                <h2 class="contact-title">Bạn cần giúp đỡ? Hãy để lại lời nhắn!</h2>
             </div>
             <div class="col-lg-8">
                 <form class="form-contact contact_form" action="{{URL::to('/postMessage')}}" method="post">
